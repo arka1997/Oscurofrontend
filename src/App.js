@@ -7,7 +7,7 @@ import Homepage from './homepage/Homepage';
 function App() {
   return (
     <div className="App">
-      {/* <Todo/> */}
+      <Todo/>
       <Homepage/>
     </div>
   );
