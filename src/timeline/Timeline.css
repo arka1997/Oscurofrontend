@@ -1,0 +1,12 @@
+.timeline{
+    display: flex;
+    flex-direction: row;
+}
+.timeline__left{
+    flex: 0.7;
+    background-color: rgb(0, 0, 0);
+}
+.timeline__right{
+    flex: 0.3;
+    background-color: rgb(0, 0, 0);
+}
