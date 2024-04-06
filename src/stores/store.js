@@ -1,24 +1,14 @@
-// import {configureStore} from '@reduxjs/toolkit'
-import {createStore, combineReducers, applyMiddleware} from "redux";
-import {thunk} from "redux-thunk";
-import {composeWithDevTools} from "redux-devtools-extension";
-import { TodoReducers } from "../reducers/TodoReducer";
-
-const reducer  = combineReducers({
-    // Storing all the reducers and combining them that is required for running the Todo Asset.
-    Todo: TodoReducers
-});
-
-const initialState = {};
-
-const middleware = [thunk];
+import {configureStore} from '@reduxjs/toolkit'
+import todoSlice from '../features/todo/todoSlice';
+import timelineSlice from '../features/timeline/timelineSlice';
 // Then send the reducer to the store for buying or modifying our state from the store shop
-const store = createStore(
-    reducer,
-    initialState,
-    composeWithDevTools(applyMiddleware(...middleware))
-);
-// export const store = configureStore({
-
-// });
-export default store;
+ import Timeline from '../timeline/Timeline';
+// Here we can keep multiple reducers AudioScheduledSourceNode, that is needed for the Todo Store
+export const store = configureStore({
+    // reducer: {
+    //     todoSlice: todoSlice, 
+    //     timelineSlice: timelineSlice,
+    // }
+    // reducer: todoSlice
+    reducer : timelineSlice
+})

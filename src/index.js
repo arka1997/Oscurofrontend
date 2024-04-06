@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-import store from './stores/store';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { store } from './stores/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // Providers are wrapped into our app, so that all the states are available globally to every components
