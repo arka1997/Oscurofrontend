@@ -6,8 +6,9 @@ import Post from './posts/Post';
 import { useDispatch } from 'react-redux';
 import { timelinePosts } from '../features/timeline/timelineSlice';
 const Timeline = () => {
-  const [posts, setPosts] = useState([]);
   
+  const dispatch = useDispatch()
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -17,7 +18,6 @@ const Timeline = () => {
           // Example: Remove 'uploads\' from the beginning of postImage URL
           const sanitizedPostImage = post.postImage.startsWith('uploads\\') ? post.postImage.substring(8) : post.postImage;
           
-  
           return {
             ...post,
             postImage: sanitizedPostImage
@@ -25,9 +25,7 @@ const Timeline = () => {
           };
         });
   
-        // Set the filtered and sanitized data in the state
-        setPosts(sanitizedPosts);
-  
+        dispatch(timelinePosts(sanitizedPosts)); 
         console.log("Filtered and sanitized posts:", sanitizedPosts);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -35,11 +33,7 @@ const Timeline = () => {
     };
   
     fetchPosts();
-  }, []);
-
-
-  const dispatch = useDispatch()
-  dispatch(timelinePosts(posts))
+  }, [dispatch]);
   
   return (
     <div className='timeline'>

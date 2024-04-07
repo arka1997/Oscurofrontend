@@ -1,0 +1,35 @@
+.post {
+    /* Add your post styles */
+  }
+  
+  .post__content {
+    /* Add styles for post content */
+  }
+  
+  .post__more-options {
+    cursor: pointer;
+    padding: 60%;
+  }
+  
+  /* CSS for Modal */
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-button:hover {
+    background-color: #45a049;
+  }

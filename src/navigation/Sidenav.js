@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Sidenav.css";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,10 +8,25 @@ import ChatIcon from "@mui/icons-material/Chat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ModalWrapper from '../timeline/posts/AddPost/ModalWrapper';
 
 const Sidenav = () => {
-    
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  // const handleOpenModal = () => {
+  //   setShowModal(true);
+  // };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  // const handleCreateClick = () => {
+
+  //   navigate("/modalWrapper");
+  // };
+  
   return (
     <div className='sidenav'>
         <div className='sidenav__logo'></div>
@@ -41,10 +56,16 @@ const Sidenav = () => {
               <FavoriteBorderIcon />
               <span>Notifications</span>
             </Link>
-            <Link to="/modalWrapper" className='sidenav__button'>
+            {/* <button className='sidenav__button' onClick={handleCreateClick}>
               <AddCircleOutlineIcon />
               <span>Create</span>
-            </Link>
+            </button> */}
+            <button className='sidenav__button' onClick={() => setShowModal(true)}>
+          <AddCircleOutlineIcon />
+          <span>Create</span>
+        </button>
+         {/* Render ModalWrapper component */}
+        <ModalWrapper showModal={showModal} handleCloseModal={handleCloseModal} />
         </div>
         <div className='sidenav__more'>
             <button className='sidenav__button'>
