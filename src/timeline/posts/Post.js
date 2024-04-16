@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import "./Post.css";
 import Avatar from '@mui/material/Avatar';
@@ -16,69 +16,66 @@ const Post = () => {
   // Fetch posts from Redux store
   const posts = useSelector(state => state.posts);
 
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  
   const getRandomColor = () => {
     const colorCode = '#' + Math.floor(Math.random() * 16777215).toString(16);
     return colorCode;
   };
 
-  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  // Initialize likes state for each post
+  const [likes, setLikes] = useState({});
 
-  const [isActive, setIsActive] = useState(true);
-
+  // Function to handle adding likes
   const addLike = async (postId) => {
-    Likes(postId, 1)
-    // Here set the Active to true, for only those post, which has been clicked.
-    setIsActive(!isActive);//SET TO ACTIVE, ONLY IF, THE DATA EXIST IN db, AND THE LIKE IS UPDATED TO +1
-    
+    try {
+      // Toggle like state for the current post
+      setLikes(prevLikes => ({
+        ...prevLikes,
+        [postId]: !prevLikes[postId]
+      }));
+      
+      // Send request to update likes in the database
+      await updateLikes(postId, likes[postId] ? 0 : 1); // Sending 1 for like, 0 for unlike
+    } catch (error) {
+      console.error('Error adding like:', error);
+    }
   };
-  const removeLike = async (postId) => {
-    Likes(postId, 0)
-    setIsActive(!isActive);//SET TO ACTIVE, ONLY IF, THE DATA EXIST IN db, AND THE LIKE IS UPDATED TO +1
-    
-  };
-const Likes = async (postId,updtLike) => {
-  try{
-    const response = await axios.get(`http://localhost:4000/addLikes/${postId}/${updtLike}`);
-    console.log(response);
-  }catch(err){
-    console.error('Error adding like:', err);
-  }
-}
 
+  // Function to send request to update likes in the database
+  const updateLikes = async (postId, updtLike) => {
+    try {
+      const response = await axios.get(`http://localhost:4000/addLikes/${postId}/${updtLike}`);
+      console.log(response);
+    } catch (error) {
+      console.error('Error updating likes:', error);
+    }
+  };
+
+  // Function to handle adding comments
   const addComments = () => {
-
-  }
+    // Implement functionality to add comments
+  };
 
   return (
     <>
-
-    {/**** Problem is simple, when you are uodating the Like button to red colour,
-     you are not specifying for a particular post, so when we set true, all the
-      other posts Love button also gets triggered and turned to red. So now, 
-      while clicking on Like button, we should try to differentiate with the Post ids */}
       {posts?.map((post) => (
-        
         <div className='post' key={post.id}>
-
           {post.text?.map((item, index) => (
             <div key={`${item.id}-${index}`}>
-
-            {/* {console.log(item._id)} */}
               <div className='post__header'>
-
                 <div className='post__headerAuthor'>
                   <Avatar style={{ marginRight: "10px" }} sx={{ bgcolor: getRandomColor() }}>
                   </Avatar>{" "}
                   {item.userName} • <span>{item.timestamp}</span>
                 </div>
+                
                 <Tooltip title="Delete Post">
                   <div className='moreOptionsIcon' onClick={() => setShowDeletePopup(true)}>
                     <MoreHorizIcon />
                   </div>
                 </Tooltip>
               </div>
-
-              {/* Render post image dynamically */}
               <div className='post__image'>
                 <img
                   src={`http://localhost:4000/${item.postImage}`} // Dynamic image source
@@ -88,14 +85,11 @@ const Likes = async (postId,updtLike) => {
               <div className='post__footer'>
                 <div className='post__footerIcons'>
                   <div className='post__iconsMain'>
-                  
-                  
-                    {isActive?(
-                      <FavoriteBorderIcon key={item._id} className="postIcon" onClick={() => addLike(item._id)} />
-                    ):(
-                      <FavoriteIcon key={item._id} className="fas postIcon" onClick={() => removeLike(item._id)} />
+                    {likes[item._id] ? (
+                      <FavoriteIcon className="fas postIcon" onClick={() => addLike(item._id)} />
+                    ) : (
+                      <FavoriteBorderIcon className="postIcon" onClick={() => addLike(item._id)} />
                     )}
-                    {/* <ModeCommentOutlinedIcon className="postIcon"/> */}
                     <ChatOutlinedIcon className="postIcon" onClick={addComments}/>
                     <TelegramIcon className="postIcon" />
                   </div>
