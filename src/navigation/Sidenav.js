@@ -10,6 +10,8 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useNavigate } from 'react-router-dom';
 import ModalWrapper from '../timeline/posts/AddPost/ModalWrapper';
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@material-ui/core/Button';
 
 const Sidenav = () => {
   const navigate = useNavigate();
@@ -56,10 +58,6 @@ const Sidenav = () => {
               <FavoriteBorderIcon />
               <span>Notifications</span>
             </Link>
-            {/* <button className='sidenav__button' onClick={handleCreateClick}>
-              <AddCircleOutlineIcon />
-              <span>Create</span>
-            </button> */}
             <button className='sidenav__button' onClick={() => setShowModal(true)}>
           <AddCircleOutlineIcon />
           <span>Create</span>

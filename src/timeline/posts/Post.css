@@ -1,6 +1,8 @@
 .post {
-  width: 60%;
-  margin: 30px 40px 50px 40px;
+  width: 80%;
+  margin: 30px 40px 50px 10%;/* can be modified for changing the position of Timeline posts */
+  align-items: center;
+  justify-content: center;
 }
 
 .post__header {
@@ -30,9 +32,11 @@
 }
 
 .post__footer {
-    
+  margin-top: 0.6cap;
+  font-size: smaller;
   border-bottom: 0.1px solid #040404; /* Add this line */
-  margin-bottom: 5%;
+  padding-bottom: 1cap;
+  margin-bottom: 3cap;
 }
 
 .post__footerIcons {
@@ -40,14 +44,47 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  font-size:150%;
+  margin-bottom: 0.5cap;
 }
+
+
 
 .postIcon {
-  padding: 7px;
-  font-size: 30px;
+  color: #8d8a8a; /* Set initial color */
+  transition: color 0.4s; /* Add transition effect for color change */
+  margin-right: 10px;
+  /* font-size: 400px; */
 }
 
-.postIcon :hover {
-  cursor: pointer;
-  color:red;
+.postIcon:hover {
+  color: red; /* Change color on hover */
+}
+
+
+.fas{
+  color: #f50057;
+  transition: .4s;
+}
+
+
+.fas:hover {
+  transform: scale(1.2); /* Enlarge the icon on hover */
+  transition: transform 0.2s ease; /* Add a smooth transition */
+}
+
+.fas.active {
+  animation: pulse 0.5s ease; /* Apply the pulse animation when active */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -17,25 +17,34 @@ const ModalWrapper = ({ showModal, handleCloseModal }) => {
         timestamp: getDates(),
     });
     const handleImageChange = (event) => {
+        // First the image is fetched with its relative details as a file object
+        // Then the readAsDataURL method of the FileReader interface is used to read the contents of the specified File :"selectedImage".
+        // When the read operation is finished, the "readyState" becomes DONE, then the return type is String Object of that file.
+        // After then onloadend is triggered. At that time, the reader.result attribute
+        // contains the data as a data URL representing the file's data as a base64 encoded string.
         const selectedImage = event.target.files[0];
+        // Asynchronously read the content of File
         const reader = new FileReader();
-    reader.onloadend = () => {
-        setPostImage(selectedImage);
-        setImage(reader.result);
+        reader.onloadend = () => {
+            setPostImage(selectedImage);
+            console.log("An encoded base64 format of the Data Url file object" +reader.result)
+            setImage(reader.result);
+        };
+        if (selectedImage) {
+            reader.readAsDataURL(selectedImage);// This will first read the contents of the File
+            console.log("Data Url String Object" +selectedImage)
+        }
     };
-    if (selectedImage) {
-      reader.readAsDataURL(selectedImage);
-    }
-    };
-
   const handlePostDetails = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target;// Here we are destructuring the values, into key-value pairs. Now "e" will contain some texts or usernmae, whihc will be set in [name]: value
+    // "...formData"is basically keeps a copy of old data, now suppose you made any update to existing userName, then only that one should modified & render.
+    // But while rendering, it will lost the other stored values and returns null, to prevent that we keep the copy of old data using "...formData"
+    // Here "name" is a property in input text
     setFormData({
         ...formData,
         [name]: value
     });
 };
-
   const handlePostSubmit = async (e) => {
     e.preventDefault();
     try {
