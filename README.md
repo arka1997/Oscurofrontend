@@ -26,7 +26,8 @@ To check which port is running: netstat -ano | findstr : 3306
 
 # While pushing the code for the first time(Not for people pulling the already existing github code):
 
-## Create a new reposiotry in Github, and save that github Url like -> https://github.com/<username>/<repository.git>
+## Create a new reposiotry in Github, and save that github Url like -> https://github.com/usernames/<repository.git>
+
 ### `git add --all`
 ### `git commit -m "dummy message"`
 ### `For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git` (the Github Url, where you wan to push the code)
