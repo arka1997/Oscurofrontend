@@ -15,23 +15,23 @@
 
 # Run the application after going to the folder where code and .json is present: npm start
 
-# For cloning a reposiotry from Github, and start making commits:
+# For cloning a repository from Github, and start making commits:
 
-git init  
-git clone URL
-then pushing code by git push.
+### `git init`  
+### `git clone URL`
+### `then pushing code by git push`
 
 To check which port is running: netstat -ano | findstr : 3306
 
 
 # While pushing the code for the first time(Not for people pulling the already existing github code):
 
-Create a new reposiotry in Github, and save that github Url like -> https://github.com/<username>/<repository.git>
-git add --all
-git commit -m ""
-For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git (the Github Url, where you wan to push the code)
-For updating the existing incorrect repo: git remote set-url origin https://github.com/arka1997/OscuroBackend.git
-git push --set-upstream origin master
+## Create a new reposiotry in Github, and save that github Url like -> https://github.com/<username>/<repository.git>
+### `git add --all`
+### `git commit -m "dummy message"`
+### `For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git` (the Github Url, where you wan to push the code)
+### `For updating the existing incorrect repo: git remote set-url origin https://github.com/arka1997/OscuroBackend.git`
+### `git push --set-upstream origin master`
 
 ## Available Scripts
 
