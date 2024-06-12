@@ -1,3 +1,11 @@
+# Initials
+1) Install vs code.\
+2) install nodes js LTS.\
+3) run node -v, to check if versio is being shown to confirm installation.\
+4) npm - v -> version of package manager is needed.\
+5) npx create-react-app@latest my-app -> for temporary basis.\
+6) npm install create-react-app@latest my-app.\
+
 # Getting Started with Create React App
 
 ### `npm i @mui/icons-material @mui/material @emotion/styled @emotion/react`
