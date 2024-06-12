@@ -20,13 +20,11 @@
 ### `git init`  
 ### `git clone URL`
 ### `then pushing code by git push`
-
-To check which port is running: netstat -ano | findstr : 3306
-
+### `Check running port : netstat -ano | findstr : 3306  
 
 # While pushing the code for the first time(Not for people pulling the already existing github code):
 
-## Create a new reposiotry in Github, and pick the github Url like -> `https://github.com/username/repository.git`
+Create a new reposiotry in Github, and pick the github Url like -> `https://github.com/username/repository.git`.\
 
 ### `git add --all`
 ### `git commit -m "dummy message"`
