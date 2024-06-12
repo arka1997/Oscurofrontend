@@ -1,9 +1,9 @@
 # Initials
 1) Install vs code.
 2) install nodes js LTS.
-3) run node -v, to check if versio is being shown to confirm installation.
+3) run node -v, to check if version is being shown to confirm installation.
 4) npm - v -> version of package manager is needed.
-5) npx create-react-app@latest my-app -> for temporary basis.
+5) npx create-react-app@latest my-app -> for temporary basis for creating an app with name "my-app" here.
 6) npm install create-react-app@latest my-app.
 
 # Getting Started with Create React App
