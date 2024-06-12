@@ -12,15 +12,14 @@
 ### `npm i axios`
 ### `npm install react-router-dom --legacy-peer-deps(Use only when there is a dependency conflict)`
 
-
-# Run the application after going to the folder where code and .json is present: npm start
+# Run the app from where package.json is present: ### `npm start`
 
 # For cloning a repository from Github, and start making commits:
 
 ### `git init`  
 ### `git clone URL`
 ### `then pushing code by git push`
-### `Check running port : netstat -ano | findstr : 3306  
+### `Check running port : netstat -ano | findstr : 3306`  
 
 # While pushing the code for the first time(Not for people pulling the already existing github code):
 
