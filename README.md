@@ -1,6 +1,37 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `npm i @mui/icons-material @mui/material @emotion/styled @emotion/react`
+### `npm i react-redux @reduxjs/toolkit OR npm i react-redux redux redux-thunk`
+### `npm i redux-devtools-extension`
+### `npm install redux-devtools-extension --legacy-peer-deps`(Dependency Conflict with Redux)
+### `npm uninstall redux(For Uninstall)`
+### `npm update redux`
+### `npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome --legacy-peer-deps`
+### `npm install @material-ui/core`
+### `npm i cors`
+### `npm i axios`
+### `npm install react-router-dom --legacy-peer-deps(Use only when there is a dependency conflict)`
+
+
+# Run the application after going to the folder where code and .json is present: npm start
+
+# For cloning a reposiotry from Github, and start making commits:
+
+git init  
+git clone URL
+then pushing code by git push.
+
+To check which port is running: netstat -ano | findstr : 3306
+
+
+# While pushing the code for the first time(Not for people pulling the already existing github code):
+
+Create a new reposiotry in Github, and save that github Url like -> https://github.com/<username>/<repository.git>
+git add --all
+git commit -m ""
+For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git (the Github Url, where you wan to push the code)
+For updating the existing incorrect repo: git remote set-url origin https://github.com/arka1997/OscuroBackend.git
+git push --set-upstream origin master
 
 ## Available Scripts
 
