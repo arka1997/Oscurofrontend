@@ -1,6 +1,43 @@
+# Initials
+1) Install vs code.
+2) install nodes js LTS.
+3) run node -v, to check if version is being shown to confirm installation.
+4) npm - v -> version of package manager is needed.
+5) npx create-react-app@latest my-app -> for temporary basis for creating an app with name "my-app" here.
+6) npm install create-react-app@latest my-app.
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `npm i @mui/icons-material @mui/material @emotion/styled @emotion/react`
+### `npm i react-redux @reduxjs/toolkit OR npm i react-redux redux redux-thunk`
+### `npm i redux-devtools-extension`
+### `npm install redux-devtools-extension --legacy-peer-deps`(Dependency Conflict with Redux)
+### `npm uninstall redux(For Uninstall)`
+### `npm update redux`
+### `npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome --legacy-peer-deps`
+### `npm install @material-ui/core`
+### `npm i cors`
+### `npm i axios`
+### `npm install react-router-dom --legacy-peer-deps(Use only when there is a dependency conflict)`
+
+# Run the app from where package.json is present: ### `npm start`
+
+# For cloning a repository from Github, and start making commits:
+
+### `git init`  
+### `git clone URL`
+### `then pushing code by git push`
+### `Check running port : netstat -ano | findstr : 3306`  
+
+# While pushing the code for the first time(Not for people pulling the already existing github code):
+
+Create a new reposiotry in Github, and pick the github Url like -> `https://github.com/username/repository.git`.\
+
+### `git add --all`
+### `git commit -m "dummy message"`
+### `For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git` (the Github Url, where you wan to push the code)
+### `For updating the existing incorrect repo: git remote set-url origin https://github.com/arka1997/OscuroBackend.git`
+### `git push --set-upstream origin master`
 
 ## Available Scripts
 
