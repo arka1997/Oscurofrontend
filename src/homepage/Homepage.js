@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./Homepage.css";
 import Sidenav from "../navigation/Sidenav"
 import Timeline from "../timeline/Timeline"
+import Comments from '../components/Comments';
 const Homepage = () => {
 
     return (
@@ -12,6 +13,7 @@ const Homepage = () => {
             <div className="homepage__timeline">
                 <Timeline />
             </div>
+                {/* <Comments /> */}
         </div>
     );
 }

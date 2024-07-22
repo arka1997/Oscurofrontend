@@ -57,12 +57,3 @@ const Timeline = () => {
   )
 }
 export default Timeline;
-
-// HLL -> LLL
-// Platform Independent:
-// comp -> sourceCode -> compiler -> extension -> Windows or Mac
-// Bytecode -> Prgrammer also dont know, neither the computer...
-// This can be used to share this code to any mac/windows, and they will understand byte code...PostCompiler?? Interpreter??
-// .class vs .java?
-
-// Interpreter converts high level to lowlevel..

@@ -11,12 +11,12 @@
     background-color: brown;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 30px;
+    height: 10%;
     width: 100%;
     margin: 15%;
     padding: 15%;
     border-radius: 5px;
-    background-image: url('/src/img/Logo.jpg');
+    background-image: url('/src/img/Logo.png');
 }
 .sidenav__buttons{
     display: flex;
