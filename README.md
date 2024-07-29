@@ -3,19 +3,20 @@
 2) install nodes js LTS.
 3) run node -v, to check if version is being shown to confirm installation.
 4) npm - v -> version of package manager is needed.
-5) npx create-react-app@latest my-app -> for temporary basis for creating an app with name "my-app" here.
+5) npx create-react-app@latest my-app -> for temporary basis for creating a new app with name "my-app" here.
 6) npm install create-react-app@latest my-app.
 
 # Getting Started with Create React App
 
+##Use `--legacy-peer-deps` after the end of every npm command, if there is a Dependency Conflict whihc is a common issue that occurs due to these dependencies compatibility with each other
+
 ### `npm i @mui/icons-material @mui/material @emotion/styled @emotion/react`
 ### `npm i react-redux @reduxjs/toolkit OR npm i react-redux redux redux-thunk`
 ### `npm i redux-devtools-extension`
-### `npm install redux-devtools-extension --legacy-peer-deps`(Dependency Conflict with Redux)
+### `npm install redux-devtools-extension@latest`(Dependency Conflict with Redux)
 ### `npm uninstall redux(For Uninstall)`
 ### `npm update redux`
-### `npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome --legacy-peer-deps`
-### `npm install @material-ui/core`
+### `npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome`
 ### `npm i cors`
 ### `npm i axios`
 ### `npm install react-router-dom --legacy-peer-deps(Use only when there is a dependency conflict)`
@@ -28,6 +29,7 @@
 ### `git clone URL`
 ### `then pushing code by git push`
 ### `Check running port : netstat -ano | findstr : 3306`  
+### `***Also delete NodeModules and package-lock.json from the project -> then run -> npm install -> npm start`
 
 # While pushing the code for the first time(Not for people pulling the already existing github code):
 
