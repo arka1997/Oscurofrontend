@@ -8,7 +8,7 @@
 
 # Getting Started with Create React App
 
-##Use `--legacy-peer-deps` after the end of every npm command, if there is a Dependency Conflict whihc is a common issue that occurs due to these dependencies compatibility with each other
+### Use `--legacy-peer-deps` after the end of every npm command, if there is a Dependency Conflict whihc is a common issue that occurs due to these dependencies compatibility with each other
 
 ### `npm i @mui/icons-material @mui/material @emotion/styled @emotion/react`
 ### `npm i react-redux @reduxjs/toolkit OR npm i react-redux redux redux-thunk`
