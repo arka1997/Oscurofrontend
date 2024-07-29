@@ -11,10 +11,11 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { useSelector } from "react-redux";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import CommentForm from "../../components/CommentForm";
-import CommentList from "../../components/homepage/CommentList";
+import CommentList from "../../components/CommentList";
 
-const Post = ({ post, rootComments }) => {
+const Post = () => {
   const posts = useSelector((state) => state.posts);
+  const comments = useSelector(state => state.comments);
   const [showUpdateMessage, setShowUpdateMessage] = useState("");
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showComments, setShowComments] = useState([]);
@@ -70,17 +71,13 @@ const Post = ({ post, rootComments }) => {
     }
   };
 
-  const fetchRootComments = async (postId) => {
-    console.log(postId);
+  const toggleRootComments = async (postId) => {
+
+    // On clicking the comments button of a post, this method will trigger with the postId. Initially, prevPostId is null, so it doesn't match postId, and we set prevPostId to postId. On another click, if prevPostId and postId match, we return null to hide the comments section again.
     setActivePostId((prevPostId) => (prevPostId === postId ? null : postId));
 
     try {
-      const response = await axios.get(
-        `http://localhost:4000/getPostRootComments/${postId}`
-      );
-      const rootCommentList = response.data.postComments || [];
-      setShowComments(rootCommentList);
-      console.log(rootCommentList[0]._id);
+      setShowComments(comments);
     } catch (error) {
       console.error("Error fetching comments:", error);
       setShowComments([]); // Fallback to empty array in case of error
@@ -135,7 +132,7 @@ const Post = ({ post, rootComments }) => {
                     )}
                       <ChatOutlinedIcon
                         className="postIcon"
-                        onClick={() => fetchRootComments(item._id)}
+                        onClick={() => toggleRootComments(item._id)}
                       />
                       <TelegramIcon className="postIcon" />
                   </div>
@@ -145,14 +142,23 @@ const Post = ({ post, rootComments }) => {
                 </div>
                 Liked by {item.postLikes} people.
               </div>
+              {/* dO SOME CHanGE HERE, somehow fetch the values, and render them in comments*/}
               {activePostId === item._id && (
                 <>
-                      <CommentForm
-                        postId={item._id}
-                        userName={item.userName}
-                        timestamp={item.timestamp}
-                      />
-                      <CommentList comments={showComments} />
+                  {comments?.map((comment) => (
+                    <>
+                    {comment.postId === activePostId && (
+                      <>
+                        <CommentForm
+                            postId={item._id}
+                            userName={item.userName}
+                            timestamp={item.timestamp}
+                        />
+                        <CommentList comments={comment.text} />
+                        </>
+                  )}
+                  </>
+                  ))}
                 </>
               )}
             </div>

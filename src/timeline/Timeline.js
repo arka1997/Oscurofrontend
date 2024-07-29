@@ -4,7 +4,7 @@ import "./Timeline.css";
 import Suggestions from '../timeline/Suggestions';
 import Post from './posts/Post';
 import { useDispatch } from 'react-redux';
-import { timelinePosts } from '../features/timeline/timelineSlice';
+import { timelinePosts, addComment } from '../features/timeline/timelineSlice';
 const Timeline = () => {
   
   const dispatch = useDispatch()
@@ -15,24 +15,32 @@ const Timeline = () => {
       try {
         const response = await axios.get("http://localhost:4000/fetchPosts");
         // Filter and sanitize the data
-        const sanitizedPosts = response.data.map(post => {
+        const sanitizedPosts = await Promise.all(response.data.map(async post => {
           // Example: Remove 'uploads\' from the beginning of postImage URL that is stored in Mongo
           const sanitizedPostImage = post.postImage.startsWith('uploads\\') ? post.postImage.substring(8) : post.postImage;
           
+          // For comments
+          const responseComment = await axios.get(
+            `http://localhost:4000/getPostRootComments/${post._id}`
+          );
+          const rootComments = responseComment.data.postComments || [];
+          dispatch(addComment({
+                postId: post._id,
+                comment: rootComments
+          }));
           return {
             ...post,
             postImage: sanitizedPostImage
             // Add more sanitization or modifications as for the image storage, and storing them inside the Array "sanitizedPostImage" one by one.
           };
-        });
-  
-        dispatch(timelinePosts(sanitizedPosts)); 
-        console.log("Filtered and sanitized posts:", sanitizedPosts);
+        }));
+
+        dispatch(timelinePosts(sanitizedPosts));
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
     };
-  
+
     fetchPosts();
   }, [dispatch]);
   // 3 variants of useState:
@@ -47,7 +55,7 @@ const Timeline = () => {
     <div className='timeline'>
         <div className='timeline__left'>
             <div className='timeline__posts'>
-                <Post/>
+                <Post />
             </div>
         </div>
         <div className='timeline__right'>
