@@ -8,20 +8,20 @@
 
 # Getting Started with Create React App
 
-### Use `--legacy-peer-deps` after the end of every npm command, if there is a Dependency Conflict whihc is a common issue that occurs due to these dependencies compatibility with each other
+### Use `--legacy-peer-deps` after the end of every npm command, only if there is a Dependency Conflict whihc is a common issue that occurs due to these dependencies compatibility with each other
 
 ### `npm i @mui/icons-material @mui/material @emotion/styled @emotion/react`
 ### `npm i react-redux @reduxjs/toolkit OR npm i react-redux redux redux-thunk`
-### `npm i redux-devtools-extension`
 ### `npm install redux-devtools-extension@latest`(Dependency Conflict with Redux)
 ### `npm uninstall redux(For Uninstall)`
 ### `npm update redux`
 ### `npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome`
 ### `npm i cors`
 ### `npm i axios`
-### `npm install react-router-dom --legacy-peer-deps(Use only when there is a dependency conflict)`
+### `npm install react-router-dom`
 
-# Run the app from where package.json is present: ### `npm start`
+# Run the app from where package.json is present:
+### `npm start`
 
 # For cloning a repository from Github, and start making commits:
 
