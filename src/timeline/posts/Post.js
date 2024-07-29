@@ -7,7 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import Tooltip from "@material-ui/core/Tooltip";
+import { Tooltip } from "@mui/material";
 import { useSelector } from "react-redux";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import CommentForm from "../../components/CommentForm";

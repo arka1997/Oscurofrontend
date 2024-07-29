@@ -10,8 +10,8 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useNavigate } from 'react-router-dom';
 import ModalWrapper from '../timeline/posts/AddPost/ModalWrapper';
-import Tooltip from '@mui/material/Tooltip';
-import Button from '@material-ui/core/Button';
+import {Tooltip} from '@mui/material';
+import { Button } from '@mui/material';
 
 const Sidenav = () => {
   const navigate = useNavigate();
