@@ -14,7 +14,7 @@ const CommentList = ({ comments }) => {
       try {
         const likesData = {};
         const allComments = [];
-         // Fetch comments and their like
+         // Fetch comments and their likes
          const fetchCommentsPromises = comments.map(comment =>
           axios.get(`http://localhost:4000/getPostRootComments/${comment.postId}`)
         );
