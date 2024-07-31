@@ -37,7 +37,7 @@ Create a new reposiotry in Github, and pick the github Url like -> `https://gith
 
 ### `git add --all`
 ### `git commit -m "dummy message"`
-### `For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git` (the Github Url, where you wan to push the code)
+### `For adding: git remote add origin https://github.com/arka1997/OscuroBackend.git` (create a new Github Repository Url, where you want to push for 1st time)
 ### `For updating the existing incorrect repo: git remote set-url origin https://github.com/arka1997/OscuroBackend.git`
 ### `git push --set-upstream origin master`
 
