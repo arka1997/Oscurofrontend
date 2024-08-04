@@ -86,7 +86,7 @@ const Comments = ({ _id, postId, toogleLikeRootComment, rootCommentLikes, userNa
             {likesCount}
           </IconBtn>
             <IconBtn Icon={FaReply} onClick={editRootCommentLikes}></IconBtn>          
-          {isEditting === false ?  (
+          {isEditting === false ? (
             <IconBtn Icon={FaEdit}></IconBtn>
           ): (
             <CommentForm

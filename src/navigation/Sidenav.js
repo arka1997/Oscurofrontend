@@ -8,13 +8,12 @@ import ChatIcon from "@mui/icons-material/Chat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ModalWrapper from '../timeline/posts/AddPost/ModalWrapper';
 import {Tooltip} from '@mui/material';
 import { Button } from '@mui/material';
 
 const Sidenav = () => {
-  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
 
   // const handleOpenModal = () => {
